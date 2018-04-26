@@ -20,4 +20,10 @@ public class ArticleService {
     public List<Article> findAllArticles() {
         return articleRepositoryInt.findAllArticles();
     }
+
+    public Article findArticlesById(int i) { return articleRepositoryInt.findById(i);
+    }
+
+    public Article saveArticle(Article article) {return articleRepositoryInt.saveArticle(article);
+    }
 }
