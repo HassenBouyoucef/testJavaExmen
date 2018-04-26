@@ -10,8 +10,29 @@ public class Activite {
 
     private String descriptif;
 
+    public String getDescriptif() {
+        return descriptif;
+    }
+
+    public void setDescriptif(String descriptif) {
+        this.descriptif = descriptif;
+    }
+
+    public String getTitre() {
+        return titre;
+
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
     public Activite(String unTitre, String unDescriptif) {
         titre = unTitre;
         descriptif = unDescriptif;
+    }
+
+    public Activite(){
+
     }
 }

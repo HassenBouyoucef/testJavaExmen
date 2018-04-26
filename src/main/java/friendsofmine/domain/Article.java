@@ -9,8 +9,33 @@ public class Article {
     @PositiveOrZero
     private int id ;
 
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(String categorie) {
+        this.categorie = categorie;
+    }
+
     @NotNull
     @Size(min = 1,max = 255)
+
     private String titre;
 
     private String categorie;
@@ -19,4 +44,6 @@ public class Article {
         this.titre = s;
         this.categorie = s1;
     }
+
+    public Article() { }
 }
