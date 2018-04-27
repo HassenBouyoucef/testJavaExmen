@@ -79,4 +79,10 @@ public class UtilisateurTest {
         assertTrue(validator.validate(util).size() > 0);
     }
 
+    @Test
+    public void testUnNouvelUtilisateurEstSansActivite() {
+        Utilisateur util = new Utilisateur("Durand", "Eric", "jd@jd.com", "M");
+        assertNull("Un nouvel Utilisateur n'a pas d'activité" , util.getActivites());
+    }
+
 }

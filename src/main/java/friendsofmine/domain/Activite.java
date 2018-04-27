@@ -1,9 +1,6 @@
 package friendsofmine.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -11,7 +8,6 @@ import javax.validation.constraints.Size;
 public class Activite {
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Size(min = 1,max = 255)
@@ -19,6 +15,16 @@ public class Activite {
     private String titre;
 
     private String descriptif;
+    @ManyToOne
+    @NotNull
+    private Utilisateur responsable;
+
+
+    public Activite(String s, String unDescriptif, Utilisateur utilisateur) {
+        titre = s;
+        descriptif = unDescriptif;
+        responsable = utilisateur;
+    }
 
     public String getDescriptif() {
         return descriptif;

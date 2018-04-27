@@ -1,13 +1,11 @@
 package friendsofmine.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 
 @Entity
 public class Utilisateur {
@@ -21,6 +19,9 @@ public class Utilisateur {
     @NotNull
     @Size(min = 1,max = 255)
     private String prenom;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "responsable")
+    private Collection<Activite> activites;
 
     public String getNom() {
         return nom;
@@ -74,5 +75,9 @@ public class Utilisateur {
 
     public Long getId() {
         return id;
+    }
+
+    public Collection<Activite> getActivites() {
+        return activites;
     }
 }
